@@ -2,12 +2,12 @@ import java.util.Scanner;  //Владимир, молодец!!!
 
 public class DepositCalculator {
 
-    double calculateComplexPercentFunction(double a, double y, int d) {   // из задания "удалить постфикс Function", переименовать параметры на "говорящие", это ты увидел первым)))
-        double pay = a * Math.pow((1 + y / 12), 12 * d);
+    double calculateComplexPercent(double amount, double yearRate, int depositPeriod) {   // из задания "удалить постфикс Function", переименовать параметры на "говорящие", это ты увидел первым)))
+        double pay = amount * Math.pow((1 + yearRate / 12), 12 * depositPeriod);
         return rounding(pay, 2);
     }
 
-    double calculateSimplePercentFunction(double amount, double yearRate, int depositPeriod) { // из задания "удалить постфикс Function"
+    double calculateSimplePercent(double amount, double yearRate, int depositPeriod) { // из задания "удалить постфикс Function"
         return rounding(amount + amount * yearRate * depositPeriod, 2);
     }
 
@@ -29,9 +29,9 @@ public class DepositCalculator {
         action = scanner.nextInt();
         double out = 0;     //объявление переменной и её инициализация и остальной код, нужна ли здесь отделяющая пустая строка?
         if (action == 1) {
-            out = calculateSimplePercentFunction(amount, 0.06, period);
+            out = calculateSimplePercent(amount, 0.06, period);
         } else if (action == 2) {
-            out = calculateComplexPercentFunction(amount, 0.06, period);
+            out = calculateComplexPercent(amount, 0.06, period);
         }
         System.out.println("Результат вклада: " + amount + " за " + period + " лет превратятся в " + out);
     }
