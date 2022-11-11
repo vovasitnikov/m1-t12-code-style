@@ -19,6 +19,7 @@ public class DepositCalculator {
     void calculatingDepositProfit() {
         int period;
         int action;
+        double yearRate = 0.06;
         
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите сумму вклада в рублях:");
@@ -29,9 +30,9 @@ public class DepositCalculator {
         action = scanner.nextInt();
         double out = 0;     //объявление переменной и её инициализация и остальной код, нужна ли здесь отделяющая пустая строка?
         if (action == 1) {
-            out = calculateSimplePercent(amount, 0.06, period);
+            out = calculateSimplePercent(amount, yearRate, period);
         } else if (action == 2) {
-            out = calculateComplexPercent(amount, 0.06, period);
+            out = calculateComplexPercent(amount, yearRate, period);
         }
         System.out.println("Результат вклада: " + amount + " за " + period + " лет превратятся в " + out);
     }
